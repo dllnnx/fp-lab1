@@ -45,8 +45,11 @@ jobs:
             git ls-files '*.ml' '*.mli' | xargs -r ocamlformat --enable-outside-detected-project --inplace
 
         - name: Build & Test & Execute task
+          env: 
+           OCAMLRUNPARAM: "l=100M,s=100M"
           run: |
             eval $(opam env)
+            ulimit -s unlimited
             dune exec task4
 
   task26:
