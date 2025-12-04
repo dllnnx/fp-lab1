@@ -68,6 +68,13 @@ jobs:
           eval $(opam env)
           opam install dune
 
+      - name: Check formatting
+        working-directory: .
+        run: |
+          eval "$(opam env)"
+          ocamlformat --version
+          git ls-files '*.ml' '*.mli' | xargs -r ocamlformat --enable-outside-detected-project --check
+
       - name: Build & Test & Execute task
         run: |
           eval $(opam env)
