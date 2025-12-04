@@ -35,6 +35,13 @@ jobs:
           run: |
             eval $(opam env)
             opam install ocamlformat
+            
+        - name: Check formatting
+          working-directory: .
+          run: |
+            eval "$(opam env)"
+            ocamlformat --version
+            git ls-files '*.ml' '*.mli' | xargs -r ocamlformat --enable-outside-detected-project --inplace
 
         - name: Build & Test & Execute task
           run: |
