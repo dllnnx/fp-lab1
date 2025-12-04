@@ -31,6 +31,11 @@ jobs:
             eval $(opam env)
             opam install . --deps-only --with-test
 
+        - name: Install ocamlformat
+          run: |
+            eval $(opam env)
+            opam install ocamlformat
+
         - name: Install Dune
           run: |
             eval $(opam env)
@@ -64,6 +69,11 @@ jobs:
         run: |
           eval $(opam env)
           opam install . --deps-only --with-test
+
+      - name: Install ocamlformat
+        run: |
+          eval $(opam env)
+          opam install ocamlformat
 
       - name: Install Dune
         run: |
