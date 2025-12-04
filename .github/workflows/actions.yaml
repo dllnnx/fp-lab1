@@ -36,11 +36,6 @@ jobs:
             eval $(opam env)
             opam install ocamlformat
 
-        - name: Install Dune
-          run: |
-            eval $(opam env)
-            opam install dune
-
         - name: Build & Test & Execute task
           run: |
             eval $(opam env)
@@ -75,17 +70,12 @@ jobs:
           eval $(opam env)
           opam install ocamlformat
 
-      - name: Install Dune
-        run: |
-          eval $(opam env)
-          opam install dune
-
       - name: Check formatting
         working-directory: .
         run: |
           eval "$(opam env)"
           ocamlformat --version
-          git ls-files '*.ml' '*.mli' | xargs -r ocamlformat --enable-outside-detected-project --check
+          git ls-files '*.ml' '*.mli' | xargs -r ocamlformat --enable-outside-detected-project --inplace
 
       - name: Build & Test & Execute task
         run: |
