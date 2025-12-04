@@ -29,13 +29,14 @@ jobs:
         - name: Install dependencies
           run: |
             eval $(opam env)
+            ulimit -s unlimited
             opam install . --deps-only --with-test
 
         - name: Install ocamlformat
           run: |
             eval $(opam env)
             opam install ocamlformat
-            
+
         - name: Check formatting
           working-directory: .
           run: |
