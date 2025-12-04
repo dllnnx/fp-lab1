@@ -1,0 +1,10 @@
+(lang dune 3.4)
+(name task26)
+(generate_opam_files true)
+(package
+ (name task26)
+ (synopsis "Task 26 solutions with different approaches")
+ (description "Multiple implementations of task 26 using various programming paradigms")
+ (depends 
+  ocaml 
+  dune))

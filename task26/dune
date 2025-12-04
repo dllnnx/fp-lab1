@@ -1,0 +1,5 @@
+(executable
+ (name main)
+ (modules main)
+ (libraries utils tail_recursive recursive modular map for lazy)
+ (public_name task26))

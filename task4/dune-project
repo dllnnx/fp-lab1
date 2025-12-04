@@ -1,0 +1,10 @@
+(lang dune 3.4)
+(name task4)
+(generate_opam_files true)
+(package
+ (name task4)
+ (synopsis "Task 4 solutions with different approaches")
+ (description "Multiple implementations of task 4 using various programming paradigms")
+ (depends 
+  ocaml 
+  dune))

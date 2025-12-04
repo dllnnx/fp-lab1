@@ -1,0 +1,33 @@
+(library
+ (name utils)
+ (modules utils))
+
+(library
+ (name tail_recursive)
+ (modules tail_recursive)
+ (libraries utils))
+
+(library
+ (name recursive)
+ (modules recursive)
+ (libraries utils))
+
+(library
+ (name modular)
+ (modules modular)
+ (libraries utils))
+
+(library
+ (name map)
+ (modules map)
+ (libraries utils))
+
+(library
+ (name for)
+ (modules for)
+ (libraries utils))
+
+(library
+ (name lazy)
+ (modules lazy)
+ (libraries utils))
