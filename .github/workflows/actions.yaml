@@ -29,8 +29,10 @@ jobs:
         - name: Install dependencies
           run: |
             eval $(opam env)
-            ulimit -s unlimited
             opam install . --deps-only --with-test
+
+        - name: Increase stack size
+          run: ulimit -s unlimited
 
         - name: Install ocamlformat
           run: |
@@ -39,18 +41,15 @@ jobs:
 
         - name: Check formatting
           working-directory: .
-          run: |
-            eval "$(opam env)"
-            ocamlformat --version
-            git ls-files '*.ml' '*.mli' | xargs -r ocamlformat --enable-outside-detected-project --inplace
+          run:  git ls-files '*.ml' '*.mli' | xargs -r ocamlformat --enable-outside-detected-project --inplace
 
         - name: Build & Test & Execute task
           env: 
            OCAMLRUNPARAM: "l=100M,s=100M"
           run: |
-            eval $(opam env)
-            ulimit -s unlimited
+            dune build
             dune exec task4
+            dune test
 
   task26:
     strategy:
@@ -76,6 +75,9 @@ jobs:
           eval $(opam env)
           opam install . --deps-only --with-test
 
+      - name: Increase stack size
+        run: ulimit -s unlimited
+
       - name: Install ocamlformat
         run: |
           eval $(opam env)
@@ -83,12 +85,10 @@ jobs:
 
       - name: Check formatting
         working-directory: .
-        run: |
-          eval "$(opam env)"
-          ocamlformat --version
-          git ls-files '*.ml' '*.mli' | xargs -r ocamlformat --enable-outside-detected-project --inplace
+        run: git ls-files '*.ml' '*.mli' | xargs -r ocamlformat --enable-outside-detected-project --inplace
 
       - name: Build & Test & Execute task
         run: |
-          eval $(opam env)
+          dune build
           dune exec task26
+          dune test
