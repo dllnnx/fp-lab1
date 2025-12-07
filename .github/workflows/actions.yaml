@@ -50,6 +50,7 @@ jobs:
           env: 
            OCAMLRUNPARAM: "l=100M,s=100M"
           run: |
+            eval $(opam env)
             dune build
             dune test
 
@@ -94,5 +95,6 @@ jobs:
 
       - name: Build & Test
         run: |
+          eval $(opam env)
           dune build
           dune test
