@@ -44,7 +44,7 @@ jobs:
           run: |
             eval "$(opam env)"
             ocamlformat --version
-            git ls-files '*.ml' '*.mli' | xargs -r ocamlformat --enable-outside-detected-project --inplace
+            git ls-files '*.ml' '*.mli' | xargs -r ocamlformat --enable-outside-detected-project --check
 
         - name: Build & Test
           env: 
