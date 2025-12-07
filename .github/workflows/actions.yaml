@@ -41,7 +41,10 @@ jobs:
 
         - name: Check formatting
           working-directory: .
-          run:  git ls-files '*.ml' '*.mli' | xargs -r ocamlformat --enable-outside-detected-project --inplace
+          run: |
+            eval "$(opam env)"
+            ocamlformat --version
+            git ls-files '*.ml' '*.mli' | xargs -r ocamlformat --enable-outside-detected-project --inplace
 
         - name: Build & Test
           env: 
@@ -84,7 +87,10 @@ jobs:
 
       - name: Check formatting
         working-directory: .
-        run: git ls-files '*.ml' '*.mli' | xargs -r ocamlformat --enable-outside-detected-project --inplace
+        run: |
+            eval "$(opam env)"
+            ocamlformat --version
+            git ls-files '*.ml' '*.mli' | xargs -r ocamlformat --enable-outside-detected-project --inplace
 
       - name: Build & Test
         run: |
