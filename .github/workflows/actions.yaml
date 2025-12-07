@@ -43,12 +43,11 @@ jobs:
           working-directory: .
           run:  git ls-files '*.ml' '*.mli' | xargs -r ocamlformat --enable-outside-detected-project --inplace
 
-        - name: Build & Test & Execute task
+        - name: Build & Test
           env: 
            OCAMLRUNPARAM: "l=100M,s=100M"
           run: |
             dune build
-            dune exec task4
             dune test
 
   task26:
@@ -87,8 +86,7 @@ jobs:
         working-directory: .
         run: git ls-files '*.ml' '*.mli' | xargs -r ocamlformat --enable-outside-detected-project --inplace
 
-      - name: Build & Test & Execute task
+      - name: Build & Test
         run: |
           dune build
-          dune exec task26
           dune test
