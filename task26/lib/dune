@@ -1,0 +1,4 @@
+(library
+ (public_name task26.lib)
+ (name task26_lib)
+ (modules utils for lazy map_sol modular recursive tail_recursive))
