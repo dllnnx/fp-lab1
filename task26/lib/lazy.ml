@@ -11,7 +11,7 @@ let find_max_cycle acc n =
   let _, max_len = acc in
   if cycle_len > max_len then (n, cycle_len) else acc
 
-let find_largest_palindrome () =
+let find_longest_cycle () =
   seq_gen 2 |> Seq.take 998 |> List.of_seq |> List.filter has_cycle
   |> List.fold_left find_max_cycle (0, 0)
   |> fst

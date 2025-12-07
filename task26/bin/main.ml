@@ -9,11 +9,11 @@ let () = Printf.printf "recursive result: %d\n" recursive_d
 let modular_d = Modular.solve ()
 let () = Printf.printf "modular result: %d\n" modular_d
 
-let map_d = Map_sol.find_largest_palindrome ()
+let map_d = Map_sol.find_longest_cycle ()
 let () = Printf.printf "map result: %d\n" map_d
 
-let for_d = For.find_largest_palindrome ()
+let for_d = For.find_longest_cycle ()
 let () = Printf.printf "for result: %d\n" for_d
 
-let lazy_d = Lazy.find_largest_palindrome ()
+let lazy_d = Lazy.find_longest_cycle ()
 let () = Printf.printf "lazy result: %d\n" lazy_d

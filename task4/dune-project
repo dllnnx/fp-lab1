@@ -7,4 +7,5 @@
  (description "Multiple implementations of task 4 using various programming paradigms")
  (depends 
   ocaml 
-  dune))
+  dune
+  alcotest))

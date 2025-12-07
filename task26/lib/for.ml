@@ -1,4 +1,4 @@
-let find_largest_palindrome () =
+let find_longest_cycle () =
   let max_d = ref 0 in
   let max_len = ref 0 in
   for d = 2 to 999 do
