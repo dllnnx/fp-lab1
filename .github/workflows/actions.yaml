@@ -51,6 +51,7 @@ jobs:
            OCAMLRUNPARAM: "l=100M,s=100M"
           run: |
             eval $(opam env)
+            ulimit -s unlimited
             dune build
             dune test
 
